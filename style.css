@@ -1,0 +1,213 @@
+:root {
+    --bg:           #080808;
+    --surface:      #111110;
+    --surface-2:    #1c1b19;
+    --border:       #2a2928;
+    --accent:       #e8000d;   /* Rojo MotoGP */
+    --accent-glow:  rgba(232, 0, 13, 0.45);
+    --gold:         #ffc107;
+    --gold-glow:    rgba(255, 193, 7, 0.5);
+    --text:         #e0dfdd;
+    --text-muted:   #7a7875;
+    --btn-blue:     #0d6efd;
+    --btn-hover:    #3a8eff;
+    --radius:       12px;
+    --transition:   250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg);
+    /* Patrón de puntos decorativo en el fondo */
+    background-image: radial-gradient(circle, #222 1px, transparent 1px);
+    background-size: 28px 28px;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    /* Línea de acento roja debajo del header */
+    background: linear-gradient(180deg, rgba(232,0,13,0.06) 0%, transparent 100%);
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 30px var(--accent-glow), 0 2px 4px rgba(0,0,0,0.8);
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+}
+
+header h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.contenedor-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.5rem 2rem 1rem;
+    position: relative;
+}
+
+.contenedor-imagen::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 220px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--accent), transparent 60%);
+    opacity: 0.12;
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.contenedor-imagen img {
+    max-width: 100%;
+    max-height: 52vh;
+    border-radius: var(--radius);
+    box-shadow:
+        0 0 0 1px var(--border),
+        0 8px 40px rgba(0, 0, 0, 0.7),
+        0 0 60px rgba(232, 0, 13, 0.08);
+    object-fit: contain;
+    transition: opacity 350ms ease;
+    position: relative;
+    z-index: 1;
+}
+
+
+.info-piloto {
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--surface) 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.8rem;
+    width: 90%;
+    max-width: 580px;
+    text-align: left;
+    margin: 0.5rem 0 1.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: opacity 300ms ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-piloto::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at top right, rgba(232,0,13,0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.info-piloto h2 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--gold);
+    text-shadow: 0 0 12px var(--gold-glow);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.03em;
+}
+
+.info-piloto p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+
+.contenedor-botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 90%;
+    max-width: 700px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 11px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+    color: #ffffff;
+    border-color: var(--btn-hover);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 24px rgba(58, 142, 255, 0.45);
+}
+
+button:active {
+    transform: scale(0.96) translateY(0);
+    box-shadow: none;
+}
+
+button.activo {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 4px 18px var(--accent-glow);
+    transform: scale(1.07) translateY(-2px);
+}
+
+button.activo:hover {
+    background-color: #ff2030;
+    transform: scale(1.13) translateY(-3px);
+    box-shadow: 0 8px 28px var(--accent-glow);
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.4rem; }
+    .info-piloto { padding: 0.9rem 1.2rem; }
+    button { padding: 10px 16px; font-size: 0.8rem; }
+}
