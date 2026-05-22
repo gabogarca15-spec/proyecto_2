@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>proyecto_2</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>proyecto_2</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <h1>Pilotos MotoGP</h1>
-        <p>Selecciona un piloto para conocer más sobre él</p>
-    </header>
+  <div id="pagina">
+       <img id="fondo" src="img/fondo.jpg" alt="Fondo MotoGP" />
 
-    <div class="contenedor-imagen">
-        <img id="visorImagen" alt="Imagen principal">
+    <div id="contenido">
+      <h1 id="titulo">Pilotos de MotoGP</h1>
+
+      <div id="menu" class="menu">
+        <button id="btn-valentino" class="btn-menu">Valentino Rossi</button>
+        <button id="btn-marc"      class="btn-menu">Marc Márquez</button>
+        <button id="btn-lorenzo"   class="btn-menu">Jorge Lorenzo</button>
+        <button id="btn-garcia"    class="btn-menu">Néstor García</button>
+      </div>
+
+      <div id="nombre">Selecciona un piloto</div>
     </div>
+  </div>
 
-    <div class="info-piloto" id="infoPiloto">
-        <h2 id="nombrePiloto">Selecciona un piloto</h2>
-        <p id="descPiloto">Haz clic en uno de los botones para ver la información.</p>
-    </div>
-
-    <div class="contenedor-botones">
-        <button class="cambiarPiloto('valentino', this)">Valentino Rossi</button>
-        <button class="cambiarPiloto('marc', this)">Marc Marquez</button>
-        <button class="cambiarPiloto('lorenzo', this)">Lorenzo</button>
-        <button class="cambiarPiloto('garcia', this)">Nestor Garcia</button>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
